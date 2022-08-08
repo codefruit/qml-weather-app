@@ -4,6 +4,7 @@ import QtQuick.VirtualKeyboard 2.4
 
 import "qml/forms"
 import "qml/components"
+import "qml/fonts/font-awesome"
 
 ApplicationWindow {
 	id: window

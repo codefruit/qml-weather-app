@@ -8,5 +8,5 @@ ToolButton {
 
 	property alias symbol: button.text
 
-	font.family: FaFontFamilies.solidIcons
+    font.family: FaFontFamilies.solidIcons
 }

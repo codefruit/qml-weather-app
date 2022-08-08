@@ -23,17 +23,14 @@ int main(int argc, char *argv[])
 	app.setOrganizationDomain("codefruit.de");
 	app.setApplicationName("QML Weather App");
 
-	QSettings* settings = new QSettings();
-
-	/*
-	settings->setValue("owm/apiKey", "9fab8697474d6b9aa3cc1c50fd101c4f");
-	settings->setValue("owm/cityName", "ganderkesee");
-	settings->setValue("owm/countryCode", "de");
-
-	settings->setValue("general/temperatureUnit", "c");
-	settings->setValue("general/systemLang", "de");
-	settings->setValue("general/systemUnits", "metric");
-	*/
+	QSettings* settings = new QSettings();	
+	if (settings->value("general/systemLang").isNull()) {
+		QLocale l = QLocale::system();
+		QStringList langs = l.uiLanguages();
+		settings->setValue("general/systemLang", langs.isEmpty() ? "" : langs.first().left(2).toLower());
+		settings->setValue("general/systemUnits", l.measurementSystem() == QLocale::MetricSystem ? "metric" : "imperial");
+		settings->setValue("general/temperatureUnit", l.measurementSystem() == QLocale::MetricSystem ? "c" : "f");
+	}
 
 	QNetworkAccessManager* nam = new QNetworkAccessManager();
 	NetworkDataController* ndc = new NetworkDataController(nam);

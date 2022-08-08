@@ -117,3 +117,16 @@ void Forecast::setPrecipitation(int precipitation)
 	m_precipitation = precipitation;
 	emit precipitationChanged(m_precipitation);
 }
+
+float Forecast::uvIndex() const
+{
+	return m_uvIndex;
+}
+
+void Forecast::setUvIndex(float newUvIndex)
+{
+	if (qFuzzyCompare(m_uvIndex, newUvIndex))
+		return;
+	m_uvIndex = newUvIndex;
+	emit uvIndexChanged(m_uvIndex);
+}

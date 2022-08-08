@@ -8,44 +8,47 @@ import de.codefruit.qmlcomponents 1.0
 import "../fonts/font-awesome"
 
 Pane {
-	Layout.fillWidth: true
+    Layout.fillWidth: true
 
-	property alias headline: headline.text
-	property alias text: content.text
-	property alias icon: icon.symbol
+    property alias headline: headline.text
+    property alias text: content.text
+    property alias icon: icon.symbol
+    property alias iconRotation: icon.rotation
+    property alias iconFamiliy: icon.symbolFamily
 
-	background: Rectangle {
+    background: Rectangle {
+        color: Qt.lighter(Material.background, 1.1)
+        radius: 10
+    }
 
-		color: Qt.lighter(Material.background, 1.1)
-		radius: 10
+    RowLayout {
+        anchors.fill: parent
 
-	}
+        WiLabel {
+            id: icon
+            visible: icon.symbol.length > 0
 
-	ColumnLayout {
-		anchors.fill: parent
+            symbolSize: Qt.application.font.pixelSize * 2
+        }
 
-		Label {
-			id: headline
-			Layout.fillWidth: true
+        ColumnLayout {
+            Layout.fillWidth: true
 
-			horizontalAlignment: Text.AlignHCenter
-			font.capitalization: Font.AllUppercase
-		}
+            Label {
+                id: headline
+                Layout.fillWidth: true
 
-		RowLayout {
+                horizontalAlignment: Text.AlignHCenter
+                font.capitalization: Font.AllUppercase
+            }
 
-			WiLabel {
-				id: icon
-				visible: icon.symbol.length > 0
-			}
+            Label {
+                id: content;
+                Layout.fillWidth: true
 
-			Label {
-				id: content;
-				Layout.fillWidth: true
-
-				horizontalAlignment: Text.AlignHCenter
-			}
-		}
-	}
+                horizontalAlignment: Text.AlignHCenter
+            }
+        }
+    }
 }
 

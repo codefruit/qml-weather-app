@@ -84,6 +84,7 @@ void OwmController::update(bool force)
 void OwmController::searchByLocation(const QString &location)
 {
 	qDebug("[OwmController] Search by location: '%s'", qPrintable(location));
+
 	_ndc->getDataFromUrl(buildRequstUrl("weather?q=" + location), [this](const QJsonObject& response){
 		handleWeatherResponse(response);
 
@@ -94,6 +95,7 @@ void OwmController::searchByLocation(const QString &location)
 void OwmController::searchByCode(const QString &code)
 {
 	qDebug("[OwmController] Search by code: '%s'", qPrintable(code));
+
 	_ndc->getDataFromUrl(buildRequstUrl("weather?id=" + code), [this](const QJsonObject& response){
 		handleWeatherResponse(response);
 	});
@@ -185,8 +187,8 @@ void OwmController::handleWeatherResponse(const QJsonObject &obj)
 	_weather->setWeatherDescription(weather["description"].toString());
 	_weather->setWeatherCode(weather["id"].toInt());
 
-	_weather->setSunrise(QDateTime::fromTime_t(sys["sunrise"].toInt()).toString(Qt::SystemLocaleShortDate));
-	_weather->setSunset(QDateTime::fromTime_t(sys["sunset"].toInt()).toString(Qt::SystemLocaleShortDate));
+	_weather->setSunrise(QDateTime::fromTime_t(sys["sunrise"].toInt()));
+	_weather->setSunset(QDateTime::fromTime_t(sys["sunset"].toInt()));
 
 	_weather->setTemperature(main["temp"].toDouble());
 	_weather->setPressure(main["pressure"].toDouble());
@@ -304,4 +306,5 @@ void OwmController::handleGenericForecast(Forecast *forecast, const QJsonObject 
 	forecast->setTemperature(obj["temp"].toDouble());
 	forecast->setTempFeel(obj["feels_like"].toDouble());
 	forecast->setPrecipitation(obj["pop"].toDouble() * 100);
+	forecast->setUvIndex(obj["uvi"].toDouble());
 }

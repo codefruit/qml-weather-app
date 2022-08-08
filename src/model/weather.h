@@ -2,6 +2,7 @@
 #define WEATHER_H
 
 #include <QObject>
+#include <QDateTime>
 
 class Weather : public QObject {
 	Q_OBJECT
@@ -15,8 +16,8 @@ class Weather : public QObject {
 	Q_PROPERTY(int windSpeed READ windSpeed WRITE setWindSpeed NOTIFY windSpeedChanged)
 	Q_PROPERTY(int windDegree READ windDegree WRITE setWindDegree NOTIFY windDegreeChanged)
 	Q_PROPERTY(int humidity READ humidity WRITE setHumidity NOTIFY humidityChanged)
-	Q_PROPERTY(QString sunrise READ sunrise WRITE setSunrise NOTIFY sunriseChanged)
-	Q_PROPERTY(QString sunset READ sunset WRITE setSunset NOTIFY sunsetChanged)
+	Q_PROPERTY(QDateTime sunrise READ sunrise WRITE setSunrise NOTIFY sunriseChanged)
+	Q_PROPERTY(QDateTime sunset READ sunset WRITE setSunset NOTIFY sunsetChanged)
 	Q_PROPERTY(int tempMax READ tempMax WRITE setTempMax NOTIFY tempMaxChanged)
 	Q_PROPERTY(int tempMin READ tempMin WRITE setTempMin NOTIFY tempMinChanged)
 	Q_PROPERTY(int tempFeel READ tempFeel WRITE setTempFeel NOTIFY tempFeelChanged)
@@ -34,8 +35,8 @@ public:
 	float humidity() const;
 	int windSpeed() const;
 	int windDegree() const;
-	QString sunrise() const;
-	QString sunset() const;
+	QDateTime sunrise() const;
+	QDateTime sunset() const;
 	int tempMax() const;
 	int tempMin() const;
 	int tempFeel() const;
@@ -51,8 +52,8 @@ public slots:
 	void setHumidity(float humidity);
 	void setWindSpeed(int windspeed);
 	void setWindDegree(int windDegree);	
-	void setSunrise(const QString &sunrise);
-	void setSunset(const QString &sunset);
+	void setSunrise(const QDateTime &sunrise);
+	void setSunset(const QDateTime &sunset);
 	void setTempMax(int tempMax);
 	void setTempMin(int tempMin);
 	void setTempFeel(int tempFeel);
@@ -68,8 +69,8 @@ signals:
 	void windSpeedChanged(int windSpeed);
 	void windDegreeChanged(int windDegree);
 	void humidityChanged(int humidity);
-	void sunriseChanged(QString sunrise);
-	void sunsetChanged(QString sunset);
+	void sunriseChanged(QDateTime sunrise);
+	void sunsetChanged(QDateTime sunset);
 	void tempMaxChanged(int tempMax);
 	void tempMinChanged(int tempMin);	
 	void tempFeelChanged(int tempFeel);
@@ -85,8 +86,8 @@ private:
 	int _windSpeed = -1;
 	int _windDegree = -1;
 	float _humidity = -1.0;
-	QString _sunrise;
-	QString _sunset;
+	QDateTime _sunrise;
+	QDateTime _sunset;
 	int _tempMin = -1;
 	int _tempMax = -1;
 	int _tempFeel = -1;

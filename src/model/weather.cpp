@@ -121,7 +121,7 @@ int Weather::weatherCode() const
 	return _weatherCode;
 }
 
-void Weather::setSunrise(const QString &sunrise)
+void Weather::setSunrise(const QDateTime &sunrise)
 {
 	if (_sunrise != sunrise) {
 		_sunrise = sunrise;
@@ -129,12 +129,12 @@ void Weather::setSunrise(const QString &sunrise)
 	}
 }
 
-QString Weather::sunrise() const
+QDateTime Weather::sunrise() const
 {
 	return _sunrise;
 }
 
-void Weather::setSunset(const QString &sunset)
+void Weather::setSunset(const QDateTime &sunset)
 {
 	if (_sunset != sunset) {
 		_sunset = sunset;
@@ -142,7 +142,7 @@ void Weather::setSunset(const QString &sunset)
 	}
 }
 
-QString Weather::sunset() const
+QDateTime Weather::sunset() const
 {
 	return _sunset;
 }

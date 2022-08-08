@@ -20,5 +20,7 @@
         <file>qml/components/WeatherOverviewComponent.qml</file>
         <file>qml/components/WeatherDetailsComponent.qml</file>
         <file>qml/components/WeatherDetailItem.qml</file>
+        <file>qml/components/FaLabel.qml</file>
+        <file>qml/fonts/weather-icons/WiIcons.qml</file>
     </qresource>
 </RCC>

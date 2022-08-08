@@ -31,17 +31,37 @@ Page {
 			ColumnLayout {
 				width: parent.width
 
+                RowLayout {
+                    id: headlineRow
+                    spacing: 10
+
+                    Label {
+                        text: OwmController.forecast[0] ? OwmController.forecast[0].timestamp.toLocaleDateString(Qt.locale(), "dddd") : ""
+                        font.pixelSize: Qt.application.font.pixelSize * 1.5
+                    }
+
+                    Item { Layout.fillWidth: true }
+
+                    Label {
+                        enabled: false
+                        text: OwmController.forecast[0] ? OwmController.forecast[0] .timestamp.toLocaleDateString(Qt.locale(), "dd.MM.yyyy") : ""
+                        font.pixelSize: Qt.application.font.pixelSize * 1.25
+                    }
+
+                }
+
+                Rectangle {
+                    Layout.fillWidth: true
+                    height: 1
+                    opacity: 0.25
+                }
+
 				Repeater {
 					id: forecastRepeater
 					model: OwmController.forecast
 					ForecastComponent {
 						id: forecastItem
-						forecast: OwmController.forecast[index]
-						headlineVisible: {
-							var f2 = OwmController.forecast[Math.max(index-1,0)]
-							var day = f2.timestamp.toLocaleDateString(Qt.locale(), "dd")
-							return index === 0 || (forecastItem && forecastItem.day !== day)
-						}
+						forecast: OwmController.forecast[index]						
 					}
 				}
 			}

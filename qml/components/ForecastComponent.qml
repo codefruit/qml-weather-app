@@ -9,70 +9,58 @@ import "../fonts/font-awesome"
 
 Item {
 	Layout.fillWidth: true
-	Layout.preferredHeight: headlineRow.visible ? 84 : 42
+    Layout.preferredHeight: 80
 
 	property var forecast
-	property string day: forecast.timestamp.toLocaleDateString(Qt.locale(), "dd")
-	property alias headlineVisible: headlineRow.visible
-
-	RowLayout {
-		id: headlineRow
-		anchors.top: parent.top
-		anchors.left: parent.left
-		anchors.right: parent.right
-		height: 42
-		spacing: 10
-
-		Label {
-			text: forecast.timestamp.toLocaleDateString(Qt.locale(), "dddd")
-		}
-
-		Item { Layout.fillWidth: true }
-
-		Label {
-			text: forecast.timestamp.toLocaleDateString(Qt.locale(), "dd.MM.yyyy")
-		}
-
-	}
+    property string timestampFormat: "hh:mm"
 
 	RowLayout {
 		id: forecastRow
-		anchors.top: headlineRow.visible ? headlineRow.bottom : parent.top
+        anchors.top: parent.top
 		anchors.left: parent.left
 		anchors.right: parent.right
-		anchors.bottom: parent.bottom
-		height: 42
+		anchors.bottom: parent.bottom        
 		spacing: 10
 
-		Label {
-			text: forecast.timestamp.toLocaleTimeString(Qt.locale(), "hh:mm")
-		}
+        ColumnLayout {
+            Label {
+                enabled: false
+                text: forecast.timestamp.toLocaleString(Qt.locale(), timestampFormat)
+                font.pixelSize: Qt.application.font.pixelSize * 1.25
+            }
 
-		WiLabel {
+            Label {
+                id: fcDesc
+                text: forecast.weatherDescription
+                font.pixelSize: Qt.application.font.pixelSize * 1.5
+            }
+        }
+
+        Item { Layout.preferredWidth: parent.width / 2 - fcDesc.width - (Qt.application.font.pixelSize * 5) }
+
+		WiLabel {            
 			symbol: forecast.weatherIcon
+            symbolSize: Qt.application.font.pixelSize * 3
 		}
 
 		Label {
 			text: forecast.temperature + "°"
-		}
-
-		Label {
-			text: forecast.weatherDescription
-		}
+            font.pixelSize: Qt.application.font.pixelSize * 2
+        }
 
 		Item { Layout.fillWidth: true }
 
-		Label {
-			text: forecast.precipitation + "%"
-		}
-	}
+        FaToolButton {
+            enabled: false
+            symbol: FaIcons.faUmbrella
+            font.pixelSize: Qt.application.font.pixelSize * 2
+        }
 
-	Rectangle {
-		anchors.bottom: headlineRow.bottom
-		width: parent.width
-		height: 1
-		opacity: 0.25
-		visible: headlineRow.visible
+		Label {
+            enabled: false
+			text: forecast.precipitation + "%"
+            font.pixelSize: Qt.application.font.pixelSize * 1.5
+		}
 	}
 
 	Rectangle {

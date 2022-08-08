@@ -19,6 +19,7 @@ class Forecast : public QObject
 	Q_PROPERTY(int temperature READ temperature WRITE setTemperature NOTIFY temperatureChanged)
 	Q_PROPERTY(int tempFeel READ tempFeel WRITE setTempFeel NOTIFY tempFeelChanged)	
 	Q_PROPERTY(int precipitation READ precipitation WRITE setPrecipitation NOTIFY precipitationChanged)
+	Q_PROPERTY(float uvIndex READ uvIndex WRITE setUvIndex NOTIFY uvIndexChanged)
 
 	QML_ELEMENT
 
@@ -33,6 +34,7 @@ public:
 	int temperature() const;
 	int tempFeel() const;	
 	int precipitation() const;
+	float uvIndex() const;
 
 public slots:
 	void setTimestamp(QDateTime timestamp);
@@ -43,6 +45,7 @@ public slots:
 	void setTemperature(int temperature);
 	void setTempFeel(int tempFeel);	
 	void setPrecipitation(int precipitation);
+	void setUvIndex(float newUvIndex);
 
 signals:
 	void timestampChanged(QDateTime timestamp);
@@ -52,8 +55,8 @@ signals:
 	void weatherDescriptionChanged(QString weatherDescription);
 	void temperatureChanged(int temperature);
 	void tempFeelChanged(int tempFeel);
-
 	void precipitationChanged(int precipitation);
+	void uvIndexChanged(float uvIndex);
 
 private:
 	QDateTime m_timestamp;
@@ -64,6 +67,7 @@ private:
 	int m_temperature = -1;
 	int m_tempFeel = -1;
 	int m_precipitation = -1;
+	float m_uvIndex = -1.0;
 };
 
 #endif // FORECAST_H

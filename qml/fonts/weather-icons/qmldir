@@ -1,1 +1,2 @@
 singleton WiFontFamily 1.0 WiFontFamily.qml
+singleton WiIcons 1.0 WiIcons.qml

@@ -39,6 +39,10 @@ RESOURCES += \
 TRANSLATIONS += \
 	qml-weather-app_de_DE.ts
 
+OTHER_FILES += \
+	scripts/font-awesome/*.py \
+	README.md
+
 # Additional import path used to resolve QML modules in Qt Creator's code model
 QML_IMPORT_PATH =
 
@@ -51,4 +55,7 @@ INCLUDEPATH += src/ src/model
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
+
+DISTFILES += \
+	example-response.json
 
