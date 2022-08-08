@@ -1,0 +1,24 @@
+<RCC>
+    <qresource prefix="/">
+        <file>main.qml</file>
+        <file>qtquickcontrols2.conf</file>
+        <file>qml/forms/CurrentWeather.qml</file>
+        <file>qml/forms/ForecastHourly.qml</file>
+        <file>qml/forms/ForecastWeek.qml</file>
+        <file>qml/forms/SettingsForm.qml</file>
+        <file>qml/fonts/font-awesome/qmldir</file>
+        <file>qml/components/FaToolButton.qml</file>
+        <file>qml/fonts/font-awesome/FaFontFamilies.qml</file>
+        <file>qml/fonts/font-awesome/FaIcons.qml</file>
+        <file>qml/components/ModalDialog.qml</file>
+        <file>qml/fonts/weather-icons/WiFontFamily.qml</file>
+        <file>qml/fonts/weather-icons/qmldir</file>
+        <file>qml/components/WiLabel.qml</file>
+        <file>qml/dialogs/ConnectionDialog.qml</file>
+        <file>qml/components/PageLoader.qml</file>
+        <file>qml/components/ForecastComponent.qml</file>
+        <file>qml/components/WeatherOverviewComponent.qml</file>
+        <file>qml/components/WeatherDetailsComponent.qml</file>
+        <file>qml/components/WeatherDetailItem.qml</file>
+    </qresource>
+</RCC>

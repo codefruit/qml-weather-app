@@ -1,2 +1,3 @@
-# qml-weather-app
-Simple demo app for weather forecast  with QML/QtQuick to access Open Weather Map API
+# Quelle:
+
+https://martin.rpdev.net/2018/03/30/using-fontawesome-5-in-qml.html

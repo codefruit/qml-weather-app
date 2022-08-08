@@ -1,0 +1,8 @@
+<RCC>
+    <qresource prefix="/">
+        <file>resource/fonts/Font-Awesome-5-Brands-Regular-400.otf</file>
+        <file>resource/fonts/Font-Awesome-5-Free-Regular-400.otf</file>
+        <file>resource/fonts/Font-Awesome-5-Free-Solid-900.otf</file>
+        <file>resource/fonts/weathericons-regular-webfont.ttf</file>
+    </qresource>
+</RCC>
