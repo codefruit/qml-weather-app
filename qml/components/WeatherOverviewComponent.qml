@@ -44,8 +44,8 @@ ColumnLayout {
 
 		FaToolButton {
 			enabled: false
-			symbol: FaIcons.faArrowUp
-			font.pixelSize: Qt.application.font.pixelSize * 2
+            symbol: FaIcons.faTemperatureArrowUp
+            font.pixelSize: Qt.application.font.pixelSize * 1.5
 		}
 
 		Label {
@@ -55,13 +55,13 @@ ColumnLayout {
 		}
 
 		Item {
-			Layout.minimumWidth: 20
+            Layout.minimumWidth: 25
 		}
 
 		FaToolButton {
 			enabled: false
-			symbol: FaIcons.faArrowDown
-			font.pixelSize: Qt.application.font.pixelSize * 2
+            symbol: FaIcons.faTemperatureArrowDown
+            font.pixelSize: Qt.application.font.pixelSize * 1.5
 		}
 
 		Label {
@@ -71,18 +71,18 @@ ColumnLayout {
 		}
 
 		Item {
-			Layout.minimumWidth: 20
+            Layout.minimumWidth: 25
 		}
 
 		FaToolButton {
 			enabled: false
-			symbol: FaIcons.faUmbrella
-			font.pixelSize: Qt.application.font.pixelSize * 2
+            symbol: FaIcons.faDroplet
+            font.pixelSize: Qt.application.font.pixelSize * 1.5
 		}
 
 		Label {
 			enabled: false
-			text: OwmController.forecast[0] ? OwmController.forecast[0].precipitation + "%" : "-1%"
+            text: OwmController.forecast[0] ? OwmController.forecast[0].precipitation + "%" : "-1%"
 			font.pixelSize: Qt.application.font.pixelSize * 2
 		}
 

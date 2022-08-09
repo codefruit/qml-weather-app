@@ -24,6 +24,7 @@ Item {
 
         ColumnLayout {
             Label {
+                id: fcDT
                 enabled: false
                 text: forecast.timestamp.toLocaleString(Qt.locale(), timestampFormat)
                 font.pixelSize: Qt.application.font.pixelSize * 1.25
@@ -32,11 +33,11 @@ Item {
             Label {
                 id: fcDesc
                 text: forecast.weatherDescription
-                font.pixelSize: Qt.application.font.pixelSize * 1.5
+                font.pixelSize: Qt.application.font.pixelSize * 1.25
             }
         }
 
-        Item { Layout.preferredWidth: parent.width / 2 - fcDesc.width - (Qt.application.font.pixelSize * 5) }
+        Item { Layout.preferredWidth: parent.width / 2 - Math.max(fcDesc.width, fcDT.width) - (Qt.application.font.pixelSize * 5) }
 
 		WiLabel {            
 			symbol: forecast.weatherIcon
@@ -52,8 +53,8 @@ Item {
 
         FaToolButton {
             enabled: false
-            symbol: FaIcons.faUmbrella
-            font.pixelSize: Qt.application.font.pixelSize * 2
+            symbol: FaIcons.faDroplet
+            font.pixelSize: Qt.application.font.pixelSize * 1.5
         }
 
 		Label {
@@ -69,5 +70,4 @@ Item {
 		height: 1
 		opacity: 0.25
 	}
-
 }

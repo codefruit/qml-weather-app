@@ -9,10 +9,36 @@ Page {
     width: 800
     height: 480
 
-    header: Label {
-        text: qsTr("Today")
-        font.pixelSize: Qt.application.font.pixelSize * 2
-        padding: 10
+    header: Item {
+        id: headlineRow
+        width: parent.width
+        height: 50
+
+        RowLayout {
+            anchors.fill: parent
+            anchors.margins: 10
+
+            Label {
+                text: OwmController.forecast[0] ? OwmController.forecast[0].timestamp.toLocaleDateString(Qt.locale(), "dddd") : ""
+                font.pixelSize: Qt.application.font.pixelSize * 1.5
+            }
+
+            Item { Layout.fillWidth: true }
+
+            Label {
+                enabled: false
+                text: OwmController.forecast[0] ? OwmController.forecast[0] .timestamp.toLocaleDateString(Qt.locale(), "ddd dd. MMM yyyy") : ""
+                font.pixelSize: Qt.application.font.pixelSize * 1.25
+            }
+        }
+
+        Rectangle {
+            anchors.bottom: parent.bottom
+            width: parent.width - 20
+            x: 10
+            height: 1
+            opacity: 0.25
+        }
     }
 
     background: MaterialGradientBackground { }
@@ -33,31 +59,6 @@ Page {
 
             ColumnLayout {
                 width: parent.width
-
-                RowLayout {
-                    id: headlineRow
-                    spacing: 10
-
-                    Label {
-                        text: OwmController.forecast[0] ? OwmController.forecast[0].timestamp.toLocaleDateString(Qt.locale(), "dddd") : ""
-                        font.pixelSize: Qt.application.font.pixelSize * 1.5
-                    }
-
-                    Item { Layout.fillWidth: true }
-
-                    Label {
-                        enabled: false
-                        text: OwmController.forecast[0] ? OwmController.forecast[0] .timestamp.toLocaleDateString(Qt.locale(), "dd.MM.yyyy") : ""
-                        font.pixelSize: Qt.application.font.pixelSize * 1.25
-                    }
-
-                }
-
-                Rectangle {
-                    Layout.fillWidth: true
-                    height: 1
-                    opacity: 0.25
-                }
 
                 Repeater {
                     id: forecastRepeater

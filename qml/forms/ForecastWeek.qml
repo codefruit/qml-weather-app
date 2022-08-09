@@ -9,11 +9,45 @@ Page {
 	width: 800
 	height: 480
 
-	header: Label {
-		text: qsTr("Week")
-		font.pixelSize: Qt.application.font.pixelSize * 2
-		padding: 10
-	}
+    header: Item {
+        id: headlineRow
+        width: parent.width
+        height: 50
+
+        RowLayout {
+            anchors.fill: parent
+            anchors.margins: 10
+
+            Label {
+                text: qsTr("Week")
+                font.pixelSize: Qt.application.font.pixelSize * 1.5
+            }
+
+            Item { Layout.fillWidth: true }
+
+            Label {
+                enabled: false
+                text: {
+                    var text = ""
+                    var l = OwmController.dailyForecast.length;
+                    if (OwmController.dailyForecast[0] && OwmController.dailyForecast[l-1]) {
+                        text += OwmController.dailyForecast[0].timestamp.toLocaleDateString(Qt.locale(), "dd -")
+                        text += OwmController.dailyForecast[l-1].timestamp.toLocaleDateString(Qt.locale(), "dd MMM yyyy")
+                    }
+                    return text;
+                }
+                font.pixelSize: Qt.application.font.pixelSize * 1.25
+            }
+        }
+
+        Rectangle {
+            anchors.bottom: parent.bottom
+            width: parent.width - 20
+            x: 10
+            height: 1
+            opacity: 0.25
+        }
+    }
 
     background: MaterialGradientBackground { }
 
@@ -39,7 +73,7 @@ Page {
                     model: OwmController.dailyForecast
                     ForecastComponent {
                         id: forecastItem
-                        timestampFormat: "dddd"
+                        timestampFormat: "dddd dd.MM"
                         forecast: OwmController.dailyForecast[index]
                     }
                 }
