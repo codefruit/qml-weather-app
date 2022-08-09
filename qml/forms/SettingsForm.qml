@@ -186,7 +186,7 @@ Page {
                 RoundButton {
                     Material.background: window.primaryColor !== undefined ? Material.color(window.primaryColor, Material.Shade700) : undefined
                     font.family: FaFontFamilies.solidIcons
-                    text: window.primaryColor === undefined ? FaIcons.faCut : ""
+                    text: window.primaryColor === undefined ? FaIcons.faXmark : ""
                     onClicked: {
                         primaryColorDialog.open()
                     }
@@ -209,7 +209,7 @@ Page {
                 RoundButton {
                     Material.background: window.accentColor !== undefined ? Material.color(window.accentColor, Material.Shade700) : undefined
                     font.family: FaFontFamilies.solidIcons
-                    text: window.accentColor === undefined ? FaIcons.faCut : ""
+                    text: window.accentColor === undefined ? FaIcons.faXmark : ""
                     onClicked: {
                         accentColorDialog.open()
                     }

@@ -51,7 +51,7 @@ Dialog {
                 RoundButton {
                     font.family: FaFontFamilies.solidIcons
                     Material.background: modelData !== undefined ? Material.color(modelData, Material.Shade700) : modelData
-                    text: modelData === undefined ? FaIcons.faCut : ""
+                    text: modelData === undefined ? FaIcons.faXmark : ""
                     onClicked: {
                         selectedColor = modelData
                         close()
