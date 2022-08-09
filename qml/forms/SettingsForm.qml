@@ -11,8 +11,11 @@ import "../components"
 import "../dialogs"
 
 Page {
+    id: settingsPage
 	width: 800
 	height: 480
+
+    background: MaterialGradientBackground { }
 
 	Settings {
 		id: owmSettings
@@ -102,7 +105,9 @@ Page {
 			RowLayout {
 				Layout.columnSpan: 2
 
-				layoutDirection: Qt.RightToLeft
+                Item {
+                    Layout.fillWidth: true
+                }
 
 				Button {
 					text: qsTr("Test")
@@ -110,11 +115,7 @@ Page {
 						dialog.arm()
 						OwmController.update(true)
 					}
-				}
-
-				Item {
-					Layout.fillWidth: true
-				}
+				}				
 			}
 
 			Label {
@@ -153,11 +154,80 @@ Page {
 				readOnly: true
 			}
 
+            Label {
+                Layout.fillWidth: true
+                Layout.columnSpan: 2
+                Layout.topMargin: 50
+
+
+                text: qsTr("Style:");
+                font.bold: true
+                font.pointSize: Qt.application.font.pointSize + 2
+            }
+
+            RowLayout {
+                Layout.columnSpan: 2
+                Label {
+                    Layout.fillWidth: true
+                    text: qsTr("Dark Mode:")
+                }
+                Switch {
+                    checked: window.darkMode
+                    onCheckedChanged: window.darkMode = checked
+                }
+            }
+
+            RowLayout {
+                Layout.columnSpan: 2
+                Label {
+                    Layout.fillWidth: true
+                    text: qsTr("Primary Color:")
+                }
+                RoundButton {
+                    Material.background: window.primaryColor !== undefined ? Material.color(window.primaryColor, Material.Shade700) : undefined
+                    font.family: FaFontFamilies.solidIcons
+                    text: window.primaryColor === undefined ? FaIcons.faCut : ""
+                    onClicked: {
+                        primaryColorDialog.open()
+                    }
+                    MaterialColorChoosingDialog {
+                        id: primaryColorDialog
+                        title: qsTr("Primary Color")
+                        onSelectedColorChanged: {
+                            window.primaryColor = selectedColor
+                        }
+                    }
+                }
+            }
+
+            RowLayout {
+                Layout.columnSpan: 2
+                Label {
+                    Layout.fillWidth: true
+                    text: qsTr("Accent Color:")
+                }
+                RoundButton {
+                    Material.background: window.accentColor !== undefined ? Material.color(window.accentColor, Material.Shade700) : undefined
+                    font.family: FaFontFamilies.solidIcons
+                    text: window.accentColor === undefined ? FaIcons.faCut : ""
+                    onClicked: {
+                        accentColorDialog.open()
+                    }
+                    MaterialColorChoosingDialog {
+                        id: accentColorDialog
+                        title: qsTr("Accent Color")
+                        onSelectedColorChanged: {
+                            window.accentColor = selectedColor
+                        }
+                    }
+                }
+            }
+
 			Item {
 				Layout.fillWidth: true
 				Layout.fillHeight: true
 				Layout.columnSpan: 2
-			}
+			}                        
 		}
 
 		ScrollBar.vertical: ScrollBar { interactive: false }

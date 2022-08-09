@@ -1,6 +1,7 @@
 import QtQuick 2.12
 import QtQuick.Controls 2.5
 import QtQuick.VirtualKeyboard 2.4
+import QtQuick.Controls.Material 2.12
 
 import "qml/forms"
 import "qml/components"
@@ -8,10 +9,18 @@ import "qml/fonts/font-awesome"
 
 ApplicationWindow {
 	id: window
-	width: 800
-	height: 480
+    width: 600
+    height: 1000
 	visible: true
 	title: qsTr("QML Weather App - Open Weather Map Widget")
+
+    property bool darkMode: true
+    property var accentColor
+    property var primaryColor
+
+    Material.theme: window.darkMode ? Material.Dark : Material.Light
+    Material.accent: window.accentColor
+    Material.primary: window.primaryColor
 
 	Component.onCompleted: {
 		OwmController.update();

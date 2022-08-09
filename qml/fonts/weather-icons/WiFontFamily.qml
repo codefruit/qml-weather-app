@@ -6,7 +6,7 @@ QtObject {
 	id: fonts
 
 	readonly property FontLoader weatherIconsRegular: FontLoader {
-		source: "qrc:/resource/fonts/weathericons-regular-webfont.ttf"
+        source: "qrc:/resource/fonts/weathericons-regular-webfont.ttf"
 	}
 
 	readonly property string icons: weatherIconsRegular.name

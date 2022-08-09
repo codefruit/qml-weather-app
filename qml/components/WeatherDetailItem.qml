@@ -16,9 +16,12 @@ Pane {
     property alias iconRotation: icon.rotation
     property alias iconFamiliy: icon.symbolFamily
 
-    background: Rectangle {
-        color: Qt.lighter(Material.background, 1.1)
+    background: Rectangle {        
         radius: 10
+        opacity: 0.5
+        color: Material.background
+        border.color: Qt.lighter(Material.background)
+        border.width: 2
     }
 
     RowLayout {
@@ -27,7 +30,6 @@ Pane {
         WiLabel {
             id: icon
             visible: icon.symbol.length > 0
-
             symbolSize: Qt.application.font.pixelSize * 2
         }
 

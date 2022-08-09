@@ -22,5 +22,7 @@
         <file>qml/components/WeatherDetailItem.qml</file>
         <file>qml/components/FaLabel.qml</file>
         <file>qml/fonts/weather-icons/WiIcons.qml</file>
+        <file>qml/components/MaterialGradientBackground.qml</file>
+        <file>qml/components/MaterialColorChoosingDialog.qml</file>
     </qresource>
 </RCC>

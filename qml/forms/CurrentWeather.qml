@@ -17,6 +17,8 @@ Page {
 	property date currentDate
 	property string dateString
 
+    background: MaterialGradientBackground { }
+
 	Component.onCompleted: {
 		currentDate = new Date()
 		dateString = currentDate.toLocaleDateString(Qt.locale(), "ddd dd. MMM yyyy")
@@ -41,6 +43,7 @@ Page {
 		Pane {
 			id: wrapper
 			width: parent.width
+            background: Item { }
 
 			ColumnLayout {
 				width: parent.width

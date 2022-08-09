@@ -6,30 +6,33 @@ import QtQuick.Layouts 1.3
 import "../components"
 
 Page {
-	width: 800
-	height: 480
+    width: 800
+    height: 480
 
-	header: Label {
-		text: qsTr("Today")
-		font.pixelSize: Qt.application.font.pixelSize * 2
-		padding: 10
-	}
+    header: Label {
+        text: qsTr("Today")
+        font.pixelSize: Qt.application.font.pixelSize * 2
+        padding: 10
+    }
 
-	Flickable {
-		clip: true
-		anchors.fill: parent
+    background: MaterialGradientBackground { }
 
-		contentWidth: width
-		contentHeight: wrapper.implicitHeight
+    Flickable {
+        clip: true
+        anchors.fill: parent
 
-		ScrollBar.vertical: ScrollBar { interactive: false }
+        contentWidth: width
+        contentHeight: wrapper.implicitHeight
 
-		Pane {
-			id: wrapper
-			width: parent.width
+        ScrollBar.vertical: ScrollBar { interactive: false }
 
-			ColumnLayout {
-				width: parent.width
+        Pane {
+            id: wrapper
+            width: parent.width
+            background: Item { }
+
+            ColumnLayout {
+                width: parent.width
 
                 RowLayout {
                     id: headlineRow
@@ -56,15 +59,15 @@ Page {
                     opacity: 0.25
                 }
 
-				Repeater {
-					id: forecastRepeater
-					model: OwmController.forecast
-					ForecastComponent {
-						id: forecastItem
-						forecast: OwmController.forecast[index]						
-					}
-				}
-			}
-		}
-	}
+                Repeater {
+                    id: forecastRepeater
+                    model: OwmController.forecast
+                    ForecastComponent {
+                        id: forecastItem
+                        forecast: OwmController.forecast[index]
+                    }
+                }
+            }
+        }
+    }
 }

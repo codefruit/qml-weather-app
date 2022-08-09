@@ -15,6 +15,8 @@ Page {
 		padding: 10
 	}
 
+    background: MaterialGradientBackground { }
+
     Flickable {
         clip: true
         anchors.fill: parent
@@ -27,6 +29,7 @@ Page {
         Pane {
             id: wrapper
             width: parent.width
+            background: Item { }
 
             ColumnLayout {
                 width: parent.width

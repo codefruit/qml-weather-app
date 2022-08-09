@@ -9,10 +9,10 @@ QtObject {
         source: "qrc:/resource/fonts/Font-Awesome-5-Free-Regular-400.otf"
 	}
 	readonly property FontLoader fontAwesomeSolid: FontLoader {
-		source: "qrc:/resource/fonts/Font-Awesome-5-Free-Solid-900.otf"
+        source: "qrc:/resource/fonts/Font-Awesome-5-Free-Solid-900.otf"
 	}
 	readonly property FontLoader fontAwesomeBrands: FontLoader {
-		source: "qrc:/resource/fonts/Font-Awesome-5-Brands-Regular-400.otf"
+        source: "qrc:/resource/fonts/Font-Awesome-5-Brands-Regular-400.otf"
 	}
 
 	readonly property string icons: fontAwesomeRegular.name
