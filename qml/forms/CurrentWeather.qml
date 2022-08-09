@@ -5,57 +5,45 @@ import QtQuick.Layouts 1.3
 
 import de.codefruit.qmlcomponents 1.0
 
-import "../fonts/font-awesome"
-
 import "../components"
 
 Page {
-	id: currentWeatherPage
-	width: 800
-	height: 480
+    id: currentWeatherPage
+    width: 800
+    height: 480
 
-	property date currentDate
-	property string dateString
+    property date currentDate
+    property string dateString
 
     background: MaterialGradientBackground { }
 
-	Component.onCompleted: {
-		currentDate = new Date()
-		dateString = currentDate.toLocaleDateString(Qt.locale(), "ddd dd. MMM yyyy")
-	}
+    Component.onCompleted: {
+        currentDate = new Date()
+        dateString = currentDate.toLocaleDateString(Qt.locale(), "ddd dd. MMM yyyy")
+    }
 
-	Connections {
-		target: OwmController
-		function onWeatherChanged() {
-			currentDate = new Date()
-			dateString = currentDate.toLocaleDateString(Qt.locale(), "ddd dd. MMM yyyy")
-		}
-	}
+    Connections {
+        target: OwmController
+        function onWeatherChanged() {
+            currentDate = new Date()
+            dateString = currentDate.toLocaleDateString(Qt.locale(), "ddd dd. MMM yyyy")
+        }
+    }
 
-	Flickable {
-		anchors.fill: parent
+    ControllableFlickable {
+        id: flickable
+        anchors.fill: parent
 
-		contentWidth: width
-		contentHeight: wrapper.implicitHeight
+        onReloadTriggered: {
+            OwmController.update();
+        }
 
-		ScrollBar.vertical: ScrollBar { interactive: false }
+        WeatherOverviewComponent {
 
-		Pane {
-			id: wrapper
-			width: parent.width
-            background: Item { }
+        }
 
-			ColumnLayout {
-				width: parent.width
+        WeatherDetailsComponent {
 
-				WeatherOverviewComponent {
-
-				}
-
-				WeatherDetailsComponent {
-
-				}
-			}
-		}
-	}
+        }
+    }
 }

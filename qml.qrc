@@ -24,5 +24,6 @@
         <file>qml/fonts/weather-icons/WiIcons.qml</file>
         <file>qml/components/MaterialGradientBackground.qml</file>
         <file>qml/components/MaterialColorChoosingDialog.qml</file>
+        <file>qml/components/ControllableFlickable.qml</file>
     </qresource>
 </RCC>
