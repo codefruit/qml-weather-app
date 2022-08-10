@@ -11,11 +11,11 @@ import "../components"
 import "../dialogs"
 
 Page {
-    id: settingsPage
+	id: settingsPage
 	width: 800
 	height: 480
 
-    background: MaterialGradientBackground { }
+	background: MaterialGradientBackground { }
 
 	Settings {
 		id: owmSettings
@@ -60,11 +60,7 @@ Page {
 
 		GridLayout {
 			id: layout
-			//anchors.fill: parent;
-			//anchors.margins: 10
-
-			width: flickable.width
-			height: flickable.height * 1.25
+			width: parent.width
 
 			columns: 2
 			columnSpacing: 10
@@ -105,9 +101,9 @@ Page {
 			RowLayout {
 				Layout.columnSpan: 2
 
-                Item {
-                    Layout.fillWidth: true
-                }
+				Item {
+					Layout.fillWidth: true
+				}
 
 				Button {
 					text: qsTr("Test")
@@ -115,7 +111,7 @@ Page {
 						dialog.arm()
 						OwmController.update(true)
 					}
-				}				
+				}
 			}
 
 			Label {
@@ -154,80 +150,115 @@ Page {
 				readOnly: true
 			}
 
-            Label {
-                Layout.fillWidth: true
-                Layout.columnSpan: 2
-                Layout.topMargin: 50
-
-
-                text: qsTr("Style:");
-                font.bold: true
-                font.pointSize: Qt.application.font.pointSize + 2
-            }
-
-            RowLayout {
-                Layout.columnSpan: 2
-                Label {
-                    Layout.fillWidth: true
-                    text: qsTr("Dark Mode:")
-                }
-                Switch {
-                    checked: window.darkMode
-                    onCheckedChanged: window.darkMode = checked
-                }
-            }
-
-            RowLayout {
-                Layout.columnSpan: 2
-                Label {
-                    Layout.fillWidth: true
-                    text: qsTr("Primary Color:")
-                }
-                RoundButton {
-                    Material.background: window.primaryColor !== undefined ? Material.color(window.primaryColor, Material.Shade700) : undefined
-                    font.family: FaFontFamilies.solidIcons
-                    text: window.primaryColor === undefined ? FaIcons.faXmark : ""
-                    onClicked: {
-                        primaryColorDialog.open()
-                    }
-                    MaterialColorChoosingDialog {
-                        id: primaryColorDialog
-                        title: qsTr("Primary Color")
-                        onSelectedColorChanged: {
-                            window.primaryColor = selectedColor
-                        }
-                    }
-                }
-            }
-
-            RowLayout {
-                Layout.columnSpan: 2
-                Label {
-                    Layout.fillWidth: true
-                    text: qsTr("Accent Color:")
-                }
-                RoundButton {
-                    Material.background: window.accentColor !== undefined ? Material.color(window.accentColor, Material.Shade700) : undefined
-                    font.family: FaFontFamilies.solidIcons
-                    text: window.accentColor === undefined ? FaIcons.faXmark : ""
-                    onClicked: {
-                        accentColorDialog.open()
-                    }
-                    MaterialColorChoosingDialog {
-                        id: accentColorDialog
-                        title: qsTr("Accent Color")
-                        onSelectedColorChanged: {
-                            window.accentColor = selectedColor
-                        }
-                    }
-                }
-            }
-
-			Item {
+			Label {
 				Layout.fillWidth: true
-				Layout.fillHeight: true
 				Layout.columnSpan: 2
-			}                        
+				Layout.topMargin: 50
+
+				text: qsTr("Style:");
+				font.bold: true
+				font.pointSize: Qt.application.font.pointSize + 2
+			}
+
+			RowLayout {
+				Layout.fillWidth: true
+				Layout.columnSpan: 2
+				Label {
+					Layout.fillWidth: true
+					text: qsTr("Dark Mode:")
+				}
+				Switch {
+					checked: window.darkMode
+					onCheckedChanged: window.darkMode = checked
+				}
+			}
+
+			RowLayout {
+				Layout.fillWidth: true
+				Layout.columnSpan: 2
+				Label {
+					Layout.fillWidth: true
+					text: qsTr("Color:")
+				}
+
+				Label {
+					text: qsTr("Primary")
+				}
+				RoundButton {
+					Material.background: window.primaryColor !== undefined ? Material.color(window.primaryColor, Material.Shade700) : undefined
+					font.family: FaFontFamilies.solidIcons
+					text: window.primaryColor === undefined ? FaIcons.faXmark : ""
+					onClicked: {
+						primaryColorDialog.open()
+					}
+					MaterialColorChoosingDialog {
+						id: primaryColorDialog
+						title: qsTr("Primary Color")
+						onSelectedColorChanged: {
+							window.primaryColor = selectedColor
+						}
+					}
+				}
+				Label {
+					text: qsTr("Accent")
+				}
+				RoundButton {
+					Material.background: window.accentColor !== undefined ? Material.color(window.accentColor, Material.Shade700) : undefined
+					font.family: FaFontFamilies.solidIcons
+					text: window.accentColor === undefined ? FaIcons.faXmark : ""
+					onClicked: {
+						accentColorDialog.open()
+					}
+					MaterialColorChoosingDialog {
+						id: accentColorDialog
+						title: qsTr("Accent Color")
+						onSelectedColorChanged: {
+							window.accentColor = selectedColor
+						}
+					}
+				}
+			}
+
+			RowLayout {
+				Layout.fillWidth: true
+				Layout.columnSpan: 2
+				Label {
+					Layout.fillWidth: true
+					text: qsTr("Responsive:")
+				}
+				RoundButton {
+					font.family: FaFontFamilies.solidIcons
+					text: FaIcons.faMobileScreen
+					onClicked: {
+						window.width = 390;
+						window.height = 844;
+					}
+				}
+				RoundButton {
+					font.family: FaFontFamilies.solidIcons
+					text: FaIcons.faTabletScreenButton
+					onClicked: {
+						window.width = 1024;
+						window.height = 768;
+					}
+				}
+				RoundButton {
+					font.family: FaFontFamilies.solidIcons
+					text: FaIcons.faLaptop
+					onClicked: {
+						window.width = 1280;
+						window.height = 850;
+					}
+				}
+				RoundButton {
+					font.family: FaFontFamilies.brands
+					text: FaIcons.faRaspberryPi
+					onClicked: {
+						window.width = 800;
+						window.height = 480;
+					}
+				}
+			}
 		}
 
 		ScrollBar.vertical: ScrollBar { interactive: false }
