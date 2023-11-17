@@ -8,7 +8,8 @@ The `qml-weather-app` is a modern and responsive weather application developed u
 ### Features
 - Current weather display
 - Hourly weather forecast
-- 7-day weather forecast
+- 8-day weather forecast
+- Customizable Settings
 
 ### Built With
 
