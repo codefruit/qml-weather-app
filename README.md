@@ -1,9 +1,9 @@
 <!-- ABOUT THE PROJECT -->
-## About The Project
+## qml-weather-app
 
 [![Product Name Screen Shot][screenshot]](https://example.com)
 
-The "qml-weather-app" is a modern and responsive weather application developed using Qt Quick and leveraging data from the OpenWeatherMap API. The primary goal of this project was to create a modern, responsive user interface using Qt Quick Controls.
+The `qml-weather-app` is a modern and responsive weather application developed using Qt Quick and leveraging data from the OpenWeatherMap API. The primary goal of this project was to create a modern, responsive user interface using Qt Quick Controls.
 
 ### Features
 - Current weather display
@@ -17,11 +17,7 @@ The "qml-weather-app" is a modern and responsive weather application developed u
 <!-- GETTING STARTED -->
 ## Getting Started
 
-This guide will help you set up a local copy of the project and get it running. Follow these simple steps to get started.
-
 ### Prerequisites
-
-Before you begin, ensure you have the necessary tools and libraries installed. For this project, you will need:
 
 - Qt 5 or newer
 - A C++ compiler compatible with Qt (e.g., GCC for Linux, MSVC for Windows)
@@ -72,9 +68,36 @@ Before you begin, ensure you have the necessary tools and libraries installed. F
 <!-- USAGE EXAMPLES -->
 ## Usage
 
-Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
+To fully utilize the `qml-weather-app`, you need an API key from OpenWeatherMap. This key allows the app to fetch weather data. Follow these steps to get started:
 
-_For more examples, please refer to the [Documentation](https://example.com)_
+### Obtaining an OpenWeatherMap API Key
+
+1. **Create an Account:**
+   - Visit [OpenWeatherMap](https://openweathermap.org/appid) and sign up for an account if you don't already have one.
+
+2. **Generate an API Key:**
+   - Once logged in, navigate to the API keys section and generate a new API key.
+   - It may take a few minutes for the API key to become active.
+
+3. **Copy the API Key:**
+   - Copy the generated API key for use in the `qml-weather-app`.
+
+### Configuring the App
+
+1. **Start the `qml-weather-app`:**
+   - Launch the application on your system.
+
+2. **Access Settings:**
+   - Navigate to the Settings tab within the app.
+
+3. **Enter API Key and Location:**
+   - Enter the OpenWeatherMap API Key in the designated field.
+   - Specify the city and country code for which you want to receive weather data. For example, `Berlin` and `DE` for Berlin, Germany.
+
+4. **Test Settings:**
+   - Use the Test button to verify if the settings are correct and the app can retrieve weather data successfully.
+
+Once the API key and location are configured, the app will display weather information based on your settings.
 
 <!-- LICENSE -->
 ## License
@@ -84,6 +107,7 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 <!-- ACKNOWLEDGMENTS -->
 ## Acknowledgments
 
+* [Weather Icons](https://github.com/erikflowers/weather-icons)
 * [Using FontAwesome 5 in QML](https://martin.rpdev.net/2018/03/30/using-fontawesome-5-in-qml.html)
 * [Font-Awesome](https://github.com/FortAwesome/Font-Awesome)
 * [Best-README-Template](https://github.com/othneildrew/Best-README-Template)
