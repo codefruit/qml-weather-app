@@ -15,7 +15,7 @@ Page {
     property date currentDate
     property string dateString
 
-    background: MaterialGradientBackground { }
+    background: Item{ }
 
     Component.onCompleted: {
         currentDate = new Date()

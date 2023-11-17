@@ -25,6 +25,5 @@
         <file>qml/components/MaterialGradientBackground.qml</file>
         <file>qml/components/MaterialColorChoosingDialog.qml</file>
         <file>qml/components/ControllableFlickable.qml</file>
-        <file>qml/components/ForecastChart.qml</file>
     </qresource>
 </RCC>

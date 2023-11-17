@@ -41,7 +41,7 @@ Page {
         }
     }
 
-    background: MaterialGradientBackground { }
+    background: Item{ }
 
     Flickable {
         clip: true

@@ -28,6 +28,8 @@ ApplicationWindow {
 
 	property alias interactive: swipeView.interactive;
 
+    background: MaterialGradientBackground{ }
+
 	SwipeView {
 		id: swipeView
 		anchors.fill: parent

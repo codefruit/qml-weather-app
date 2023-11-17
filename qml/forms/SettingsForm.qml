@@ -15,7 +15,7 @@ Page {
 	width: 800
 	height: 480
 
-	background: MaterialGradientBackground { }
+    background: Item{ }
 
 	Settings {
 		id: owmSettings
