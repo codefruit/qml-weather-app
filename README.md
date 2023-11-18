@@ -11,6 +11,13 @@ The `qml-weather-app` is a modern and responsive weather application developed u
 - 8-day weather forecast
 - Customizable Settings
 
+> [!NOTE]  
+> This repository contains a project developed for learning Qt Quick Controls and Layouts.
+> - **Educational Focus**: Created as a hands-on exercise in Qt Quick Controls.
+> - **Older Codebase**: The code may not align with current Qt Quick best practices.
+> - **Minimal Updates**: Only small changes made for public release.
+> - **Not for Production**: Ideal for learning, not suited for production use.
+
 ### Built With
 
 * [![Qt][qt.io]][qt-url]
@@ -20,7 +27,7 @@ The `qml-weather-app` is a modern and responsive weather application developed u
 
 ### Prerequisites
 
-- Qt 5 or newer
+- Qt 5 or newer (Testet with Qt 5.15.15)
 - A C++ compiler compatible with Qt (e.g., GCC for Linux, MSVC for Windows)
 - Qt Creator (optional, but recommended for easier development)
 
